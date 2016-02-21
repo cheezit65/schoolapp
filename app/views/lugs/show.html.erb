@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @lug.title %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @lug.post %>
+</p>
+
+<%= link_to 'Edit', edit_lug_path(@lug) %> |
+<%= link_to 'Back', lugs_path %>

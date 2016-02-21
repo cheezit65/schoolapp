@@ -1,40 +1,52 @@
-<br><br><img src="/Engine.jpg"Engine" style="width:280px; height:210px">
-<div id=blogcontainer>
-Blog container<br>
-<p id="smalltext">
-Lorem ipsum dolor sit amet, nisl nisl integer. 
-Pede elit, augue odio, in pellentesque pulvinar.
-Feugiat vel, vitae massa sed. Donec in, facilisis 
-luctus habitasse, rhoncus curabitur. Volutpat gravida,
-porttitor tellus. Praesent purus felis.
-<p>
+<!-- Engine picture LEFT) -->
+<div class="col-11" style="margin-left:5%">
+<img src="/Engine.jpg"Engine" style="width:700px; height:400px">
+
+<!-- Blog Container RIGHT) -->
+<div id="blogcontainer" class="shadow">
+   <h3>Blog container</h3>
+   
+      <p>Lorem ipsum dolor sit amet, nisl nisl integer. 
+      Pede elit, augue odio, in pellentesque pulvinar.
+      Feugiat vel, vitae massa sed. Donec in, facilisis 
+      luctus habitasse, rhoncus curabitur. Volutpat gravida,
+      porttitor tellus. Praesent purus felis.
+      </p>
+      
+      <p>Lorem ipsum dolor sit amet, nisl nisl integer. 
+      Pede elit, augue odio, in pellentesque pulvinar.
+      Feugiat vel, vitae massa sed. Donec in, facilisis 
+      luctus habitasse, rhoncus curabitur. Volutpat gravida,
+      porttitor tellus. Praesent purus felis.
+      </p>
+      
+      <p>Lorem ipsum dolor sit amet, nisl nisl integer. 
+      Pede elit, augue odio, in pellentesque pulvinar.
+      Feugiat vel, vitae massa sed. Donec in, facilisis 
+      luctus habitasse, rhoncus curabitur. Volutpat gravida,
+      porttitor tellus. Praesent purus felis.
+      </p>
+      
+      <p>Lorem ipsum dolor sit amet, nisl nisl integer. 
+      Pede elit, augue odio, in pellentesque pulvinar.
+      Feugiat vel, vitae massa sed. Donec in, facilisis 
+      luctus habitasse, rhoncus curabitur. Volutpat gravida,
+      porttitor tellus. Praesent purus felis.
+      </p>
+
+<!-- Three containers below Engine pic LEFT) -->
+</div><br><br>
+<div class="col-2" class="shadow" style="background-color:#fefdfb;padding:10px 10px 10px 10px; ; margin-left:4%">
+   <h3>Parts Sale!</h3>
+      <p id="smalltext">
+      Lorem ipsum dolor sit amet
+      <p>
+      </div>
+<div class="col-2"  class="shadow"  style="background-color:#fefdfb; padding:10px 10px 10px 10px; margin-left:5%">
+      <h3>Return Policy</h3>
+      <p id="smalltext">
+      Lorem ipsum dolor sit amet
+      <p>
 </div>
-
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<br><br>
-<h1>Customer Stuff</h1>
-<table>
-<tr>
-<% @customers.each do |customer| %>
-   <td><%= customer.id %> <%= customer.customerName %></td>
-   <td><%= customer.contactFirstName %> <%= customer.contactLastName %><br></td>
-   <td><%= customer.addressLine1 %>, <%= customer.addressLine2 %><br></td>
-   <td><%= customer.city %>, <%= customer.state %> <%= customer.postalCode %><br></td>
-   <td><%= customer.country %></td>
-</tr><% end %>
-</table>
-
-<h1>Products</h1>
-<table>
-<tr>
-<% @products.each do |product| %>
-   <td><%= product.productName %> <%= product.productLine %></td>
-   <td><%= product.productScale %> <%= product.productVendor %><br></td>
-   <td><%= product.productDescription %>, <%= product.quantityInStock %><br></td>
-   <td><%= product.buyPrice %>, <%= product.MSRP %><br></td>
-</tr><% end %>
- </table>
- 
+</div>
+</div>

@@ -1,0 +1,68 @@
+<div class="col-12"><h1>Lugnuts Blog</h1></div>
+<!-- main blog post & past posts -->
+<div class="col-7"><h3>Rack & Pinion Problems?</h3>
+As with any component in a vehicle, the rack and pinion steering system can develop one or more problems over time. Since this unit is crucial for controlling your vehicle and steering it effectively, any rack and pinion steering problem needs to be diagnosed and repaired as soon as possible.
+
+Some rack and pinion systems will wear out over time. The gears are susceptible to wear and tear over time as they are frequently engaged while driving and steering.
+
+Over time, the metal on these gears wears out and results in loose fittings. Another common rack and pinion steering problem is that the bushings and bearings might wear out, leading to excessive slipping and a loose feeling in the steering wheel when driving. If there is a leak within the system, power steering fluid can slowly drain out.
+</div>
+
+
+<div id="leftsidespace" class="col-4"><h2>Past Blogs</h2></div>
+<div id="leftsidespace" class="col-4">
+   <tbody>
+    <% @lugs.each do |lug| %>
+      <tr>
+        <td><strong>Date Posted:</strong> <%= lug.created_at %></td>
+        <td><%= lug.title %></td><br><br>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+
+
+<div  class="col-12">
+<div class="col-7">
+<table>
+  <thead>
+    <tr align="left">
+      <th>Author</th>
+      <th>Comment</th>
+      <th colspan="6"></th>
+    </tr>
+  </thead>
+  <tbody id="blogtable">
+    <% @blogs.each do |blog| %>
+      <tr valign="top">
+        <td width="30%"><%= blog.title %></td>
+        <td width="70%"><%= blog.content %></td><br>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+    <div  id="leftsidespace"  class="col-4">
+        <br><br><strong><p>Share your thoughts!</p></strong>
+<%= render 'form' %>
+</div>
+
+</div>
+
+<img align=right valign=top src="/image.jpg">
+
+<div class="col-1">Column-1</div>
+<div class="col-2">Column-2</div>
+<div class="col-3">Column-3</div>
+<div class="col-4">Column-4</div>
+<div class="col-5">Column-5</div>
+<div class="col-6">Column-6</div>
+<div class="col-7">Column-7</div>
+<div class="col-8">Column-8</div>
+<div class="col-9">Column-9</div>
+<div class="col-10">Column-10</div>
+<div class="col-11">Column-11</div>
+<div class="col-12">Column-12</div>
+
+</div>

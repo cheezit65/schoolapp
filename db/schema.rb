@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160217025800) do
+
+  create_table "blogs", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.binary   "content",    limit: 4294967295
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
 
   create_table "customers", primary_key: "customerNumber", force: :cascade do |t|
     t.string  "customerName",           limit: 50, null: false
@@ -42,6 +49,13 @@ ActiveRecord::Schema.define(version: 0) do
 
   add_index "employees", ["officeCode"], name: "officeCode", using: :btree
   add_index "employees", ["reportsTo"], name: "reportsTo", using: :btree
+
+  create_table "lugs", force: :cascade do |t|
+    t.string   "title",      limit: 255
+    t.text     "post",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
 
   create_table "offices", primary_key: "officeCode", force: :cascade do |t|
     t.string "city",         limit: 50, null: false
@@ -100,6 +114,16 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_index "products", ["productLine"], name: "productLine", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",            limit: 255, null: false
+    t.string   "crypted_password", limit: 255
+    t.string   "salt",             limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
   add_foreign_key "customers", "employees", column: "salesRepEmployeeNumber", primary_key: "employeeNumber", name: "customers_ibfk_1"
   add_foreign_key "employees", "employees", column: "reportsTo", primary_key: "employeeNumber", name: "employees_ibfk_1"

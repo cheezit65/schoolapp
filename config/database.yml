@@ -14,8 +14,8 @@ development:
   adapter: mysql2
   host:  127.0.0.1
   port: 3306
-  database: c9 
-  username: cheezit65
+  database: classicmodels 
+  username: cheezit
   password: ''
 
 
@@ -26,8 +26,8 @@ test:
   adapter: mysql2
   host:  127.0.0.1
   port: 3306
-  database: c9 
-  username: cheezit65
+  database: classicmodels 
+  username: cheezit
   password: ''
 
 
@@ -54,7 +54,7 @@ production:
   adapter: mysql2
   host:  127.0.0.1
   port: 3306
-  database: c9 
-  username: cheezit65
+  database: classicmodels 
+  username: cheezit
   password: ''
 

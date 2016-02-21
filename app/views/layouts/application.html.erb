@@ -1,43 +1,49 @@
 <!DOCTYPE html>
 <html>
 <head>
+<!-- images - logo and headliner -->
 <div class="header">
-        	<div style="float:right">
-        <p  id="sameLine"><img src="/cart.png" style="float: right;width:50px; height:50px; padding-right: 50px; margin-top: 50px">
+  <img src="/LugnutsInProgress.png" alt="Logo" style="width:280px; height:210px; padding-left:10%"">
+  <img src="/logo.png" style="padding-left:4%">
 </div>
-		<form method="post" style="float: right; ">
-        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-        <p><input type="password" name="password" value="" placeholder="Password">
-        <p  id="sameLine", class="submit"><input type="submit" name="commit" value="Login">
-        <p  id="sameLine", class="submit"><input type="submit" name="commit" value="Create Account">
-        </p>
-      </form>
-<img src="/LugnutsInProgress.png" alt="Logo" style="width:280px; height:210px">
-
-<img src="/logo.png" style="padding-left:5%">
-</p>
-</p>
-</div>
-
+<!-- Title and CSS links -->
   <title>Lugnuts Automotive</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<!-- Side Panels (Gray)  
 <div class="rightBar"></div>
 <div class="leftBar"></div>
-
-
+-->
 <body>
+<!-- =============================== -->
+      <!-- Navigation Bar  -->
+<!-- =============================== -->
 <div class="navbar">
-<%= link_to 'Home', hello_Goodbye_path,:class => "navLinks" %>
-<%= link_to 'Products', products_path, :class => "navLinks"  %>
-<%= link_to 'Blog', blog_listing_path, :class => "navLinks"  %>
-<%= link_to 'About Us', about_Us_path, :class => "navLinks"  %>
-<%= link_to 'Customer Service', contact_Us_path, :class => "navLinks"  %>
+<div id="cssmenu">
+        <ul>
+            <li><%= link_to 'Home', hello_Goodbye_path %></li>
+            <li><%= link_to 'Products', products_path %></li>
+            <li><%= link_to 'Blog', new_blog_path %></li>
+            <li><%= link_to 'About Us', about_Us_path %></li>
+            <li><%= link_to 'Contact Us', contact_Us_path %></li>
+        </ul>
+    </div>
+    </div>
+<!-- Right side of header/login password/shopping cart icon -->
+<div style="margin-top:-250px; margin-left: 715px"  class="col-5">
+         <p><img src="/cart.png" style="float: right;width:50px; height:50px; padding-left: 5px; margin-top: 50px">
+  <form style="float: right; ">
+        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+        <p><input type="password" name="password" value="" placeholder="Password">
+        <p  id="sameLine", class="submit"><input type="submit" name="commit" value="Login">
+        <p  id="sameLine"><%= link_to '<button type="button">Register</button>'.html_safe, new_user_path %>
+  </form>
 </div>
+<!-- Main Container  -->
 <div class="mainContainer">
-<%= yield %>
+  <%= yield %>
 </div>
 </body>
 </html>
