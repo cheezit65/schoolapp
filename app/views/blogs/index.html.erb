@@ -1,36 +1,4 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Blogs</h1>
-<h2>Rack & Pinion Problems?</h2>
-<p>As with any component in a vehicle, the rack and pinion steering system can develop one or more problems over time. Since this unit is crucial for controlling your vehicle and steering it effectively, any rack and pinion steering problem needs to be diagnosed and repaired as soon as possible.
-
-Some rack and pinion systems will wear out over time. The gears are susceptible to wear and tear over time as they are frequently engaged while driving and steering.
-
-Over time, the metal on these gears wears out and results in loose fittings. Another common rack and pinion steering problem is that the bushings and bearings might wear out, leading to excessive slipping and a loose feeling in the steering wheel when driving. If there is a leak within the system, power steering fluid can slowly drain out.
-</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>User Comments</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @blogs.each do |blog| %>
-      <tr>
-        <td><%= blog.title %></td>
-        <td><%= blog.content %></td>
-        <td><%= link_to 'Show', blog %></td>
-        <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-        <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+<h1>Blogs Page</h1>
+<h2>Coming Soon!</h2>
 <br>
-
-<%= link_to 'New Blog', new_blog_path %>

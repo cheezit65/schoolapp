@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lugs
+  resources :blogs
   get 'user_sessions/new'
 
   get 'user_sessions/create'
@@ -25,7 +27,7 @@ Rails.application.routes.draw do
   resources :products
   resources :productlines
   get 'hello/Goodbye'
-  get 'blogs', to: 'blogs#new'
+  get 'blog', to: 'blog#new'
   get 'users/show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

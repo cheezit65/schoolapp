@@ -4,5 +4,7 @@ class HelloController < ApplicationController
    def Goodbye
     @customers = Customer.all
     @products = Product.all
+    @blogs = Blog.all
+    @lugs = Lug.all
   end
 end

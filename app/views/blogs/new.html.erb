@@ -1,68 +1,99 @@
-<div class="col-12"><h1>Lugnuts Blog</h1></div>
-<!-- main blog post & past posts -->
-<div class="col-7"><h3>Rack & Pinion Problems?</h3>
-As with any component in a vehicle, the rack and pinion steering system can develop one or more problems over time. Since this unit is crucial for controlling your vehicle and steering it effectively, any rack and pinion steering problem needs to be diagnosed and repaired as soon as possible.
+<div class="grid_12" style="padding-left: 20px"><h1>Lugnuts Blog</h1></div>
+<div class="clear"></div>
 
-Some rack and pinion systems will wear out over time. The gears are susceptible to wear and tear over time as they are frequently engaged while driving and steering.
+<div class="grid_1" style="height:auto"></div>
+<!-- Feature Blog section -->
+<!-- Section added by Kim on 2/28/2016 -->
+<!-- look for search parameter, if none found, default to first blog, .strftime("%b %d,  %Y") to the created_at
+     dates to format the output -->
+<!-- Kim: Added @lugtitle variable line on 3/3/2016 -->  
+<% if params[:id] %>
+  <% @lugs.each do |lug| %>
+    <% if lug.id.to_i == params[:id].to_i %>
+    <div class="grid_7" style="height:150px; margin-top:10px; margin-left:30px"><h3><%= lug.title %></h3>
+    <% @lugtitle = lug.title %>
+    <% @lugid = lug.id %>
+    Date Posted: <%= lug.created_at.strftime("%b %d,  %Y") %><br/><br/>
+    <%= lug.post1 %><br><br>
+    <%= lug.post2 %><br><br>
+    <%= lug.post3 %><br><br>
+  </div>
+    <% end %>
+  <% end %>
+  <% else %>
+  <% params[:id] = 1 %>
+  <% @lugs.each do |lug| %>
+    <% if lug.id.to_i == params[:id].to_i %>
+    <div class="grid_7" style="height:150px; margin-top:10px"><h3><%= lug.title %></h3>
+    <% @lugtitle = lug.title %>
+    <% @lugid = lug.id %>
+    Date Posted: <%= lug.created_at.strftime("%b %d,  %Y") %><br/><br/>
+    <%= lug.post1 %><br><br>
+    <%= lug.post2 %><br><br>
+    <%= lug.post3 %><br><br>
+    </div>
+    <% end %>
+  <% end %>
+<% end %>
 
-Over time, the metal on these gears wears out and results in loose fittings. Another common rack and pinion steering problem is that the bushings and bearings might wear out, leading to excessive slipping and a loose feeling in the steering wheel when driving. If there is a leak within the system, power steering fluid can slowly drain out.
-</div>
+<div class="grid_1" style="height:auto"></div>
+<!-- END Feature Blog section -->
 
-
-<div id="leftsidespace" class="col-4"><h2>Past Blogs</h2></div>
-<div id="leftsidespace" class="col-4">
+<!-- Kim: Other Blogs section, located at the right of the Feature Blog section -->
+<!-- Kim: Changed height from 410 to 510 to align containers and took out background -->
+<!-- Kim: Changed float:right to float:left; appended  .strftime("%b %d,  %Y") to the created_at
+     dates to format the output -->
+<div class="grid_3" style="height:auto;  margin-top:10px; float:right; position:relative">
+    <h3>Other Blogs</h3><br>
+       <% @count = 0 %>
    <tbody>
     <% @lugs.each do |lug| %>
+     <% @count = @count + 1 %>
       <tr>
-        <td><strong>Date Posted:</strong> <%= lug.created_at %></td>
-        <td><%= lug.title %></td><br><br>
+        <td><strong><%= lug.title %></strong><br></td>
+        <td>Date Posted: <%= lug.created_at.strftime("%b %d,  %Y") %><br/></td>
+        <td width="70%"><%=link_to "Read This Blog", :id => @count, :action => "new", :controller => 'blogs'  %></a></td><br><hr>
       </tr>
     <% end %>
   </tbody>
 </table>
 </div>
+<div class="clear"></div>
+<!-- END Other Blog section -->
 
+<!-- User Comments Section -->
+<!-- Kim: moved Share Your Thoughts code to previous section; changed section below to grid 8 -->
+<!-- Kim: Added Date Posted column, and sorted dates -->
+<div class="grid_5" style="margin-left:30px">
+  
+  <strong><h4>Share Your Thoughts!</h4></strong>
+<%= render 'form' %>
+</div>
+<div class="clear"></div>
 
-<div  class="col-12">
-<div class="col-7">
-<table>
+<div class="grid_8" style="height:auto; padding-left: 20px; padding-bottom:50px; margin-top:40px; margin-left:30px">
+  <table>
   <thead>
     <tr align="left">
-      <th>Author</th>
-      <th>Comment</th>
-      <th colspan="6"></th>
+      <th><strong>Date Posted</strong></th>
+      <th><strong>Author</strong></th>
+      <th><strong>Comments to <%= @lugtitle %></strong></th>
     </tr>
   </thead>
   <tbody id="blogtable">
     <% @blogs.each do |blog| %>
+    <% if blog.lugref.to_i == params[:id].to_i %>
       <tr valign="top">
-        <td width="30%"><%= blog.title %></td>
-        <td width="70%"><%= blog.content %></td><br>
+        <td width="25%"><%= blog.created_at.strftime("%b %d,  %Y")  %></td>
+        <td width="25%"><%= blog.title %></td>
+        <td width="50%"><%= blog.content %></td>
       </tr>
+      <tr style="height:10px; background-color:white">
+        <td colspan="3"> <hr /> </td>
+      </tr>
+      
+    <% end %>
     <% end %>
   </tbody>
 </table>
-</div>
-    <div  id="leftsidespace"  class="col-4">
-        <br><br><strong><p>Share your thoughts!</p></strong>
-<%= render 'form' %>
-</div>
-
-</div>
-
-<img align=right valign=top src="/image.jpg">
-
-<div class="col-1">Column-1</div>
-<div class="col-2">Column-2</div>
-<div class="col-3">Column-3</div>
-<div class="col-4">Column-4</div>
-<div class="col-5">Column-5</div>
-<div class="col-6">Column-6</div>
-<div class="col-7">Column-7</div>
-<div class="col-8">Column-8</div>
-<div class="col-9">Column-9</div>
-<div class="col-10">Column-10</div>
-<div class="col-11">Column-11</div>
-<div class="col-12">Column-12</div>
-
 </div>

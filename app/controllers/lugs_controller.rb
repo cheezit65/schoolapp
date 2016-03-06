@@ -4,7 +4,7 @@ class LugsController < ApplicationController
   # GET /lugs
   # GET /lugs.json
   def index
-    @lugs = Lug.all.sort_by &:created_at
+    @lugs = Lug.order(created_at: :desc)
   end
 
   # GET /lugs/1
@@ -14,7 +14,7 @@ class LugsController < ApplicationController
 
   # GET /lugs/new
   def new
-    @lug = Lug.new.sort_by &:created_at
+    @lugs = Lug.order(created_at: :desc)
   end
 
   # GET /lugs/1/edit
@@ -69,6 +69,6 @@ class LugsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lug_params
-      params.require(:lug).permit(:title, :post)
+      params[:lug]
     end
 end

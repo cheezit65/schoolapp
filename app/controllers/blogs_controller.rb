@@ -4,20 +4,21 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.all
-      @lugs = Lug.all
+    @blogs = Blog.order(created_at: :desc)
+    @lugs = Lug.order(created_at: :desc)
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blogs = Blog.order(created_at: :desc)
   end
 
   # GET /blogs/new
   def new
     @blog = Blog.new
-       @blogs = Blog.all
-          @lugs = Lug.all
+    @blogs = Blog.order(created_at: :desc)
+    @lugs = Lug.order(created_at: :desc)
   end
 
   # GET /blogs/1/edit
@@ -31,7 +32,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Blog was successfully created.' }
+        format.html { redirect_to :back}
         format.json { render :show, status: :created, location: @blog }
       else
         format.html { render :new }
@@ -72,6 +73,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :content)
+      params.require(:blog).permit(:title, :content, :lugref)
     end
 end

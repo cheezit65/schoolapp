@@ -1,10 +1,57 @@
-<h1>Item Description</h1>
-
-<%= params[:id] %>
+<!-- Kim: section added 2/26/2016) -->
+<!--Breadcrumbs -->
 <% @products.each do |product| %>
-<% if product.productCode == params[:id] %>
-Item Code:        <%= product.productCode  %><br />
-Item:             <%= product.productName  %><br />
-Description:      <%= product.productDescription %><br>
-Price:     $      <%= product.buyPrice %><br /><br>
-<% end %><% end %>
+    <% @products.each do |product| %>
+        <% if product.productCode == params[:id] %>
+            <% @productLine = product.productLine  %>
+    <% end %><% end %>
+<% end %>
+<%= link_to 'Products', products_path %>  / 
+<% @ProductLineName = @productLine %>
+    <% case @productLine %>
+    	<% when "Batteries"                         then  @productLine = "1"  %>
+    	<% when "Collision - Body Parts - Hardware" then  @productLine = "2"  %>
+    	<% when "Brakes"                            then  @productLine = "3"  %>
+    	<% when "Heating & Cooling"                 then  @productLine = "4"  %>
+    	<% when "Electrical - Lighting"             then  @productLine = "5"  %>
+    	<% when "Accessories"                       then  @productLine = "6"  %>
+    <% end %>
+<%= link_to @ProductLineName, :action => "index", :controller => 'productlines', :id => @productLine %>
+ / 
+<% @products.each do |product| %>
+    <% if product.productCode == params[:id] %>
+        <%= product.productName  %>
+    <% end %>
+<% end %>
+<!--End of Breadcrumbs -->
+
+<!-- Description of Product -->
+<!-- Kim: modified code to add button and format into 960 grid 3/2/2016 -->
+<!-- Kim: added Add To Cart icon/button (DISABLED until functional) 3/2/2016 -->
+<div class="grid_12">
+    <% @products.each do |product| %>
+    <% if product.productCode == params[:id] %>
+<div class="grid_5">
+    <img src="<%= product.productImage %>" style="max-width:100%" align="left">
+</div>
+<div class="grid_5" style=" padding-top:25px; float:right;margin-right:10%">
+    <h1><strong><%= product.productName  %></strong></h1><br />
+        <%= product.productDescription %><br /><br />
+         <table style="height: 300px; width: 500px">
+            <tr>
+                <td>
+                    Price:     $      <%= product.buyPrice %><br>
+                    Item Code:        <%= product.productCode  %>
+                </td>
+                <td>
+                    <button  type="submit" style="border: 0; background: transparent; float:left" disabled>
+                        <img src="../cart_button.png" alt="submit" >
+                    </button>
+                            </td>
+            </tr>    
+        </table>
+</div>
+</div>
+<% end %>
+<% end %>
+</div>

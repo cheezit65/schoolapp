@@ -1,24 +1,35 @@
-<h1>Lugnuts Product Lines</h1>
-<% case params[:id] %>
-	<% when "1" then  @category = "Classic Cars"  %>
-	<% when "2" then  @category = "Motorcycles"  %>
-	<% when "3" then  @category = "Planes"  %>
-	<% when "4" then  @category = "Ships"  %>
-	<% when "5" then  @category = "Trains"  %>
-	<% when "6" then  @category = "Trucks and Buses"  %>
-	<% when "7" then  @category = "Vintage Cars"  %>
-<% end %>
+<!-- Kim: section added 2/26/2016) -->
+<!--Breadcrumbs by Kim -->
+<%= link_to 'Products', products_path %>  / 
+<% @ProductLineName = @productLine %>
+	<% case params[:id] %>
+		<% when "1" then  @category = "Batteries"  %>
+		<% when "2" then  @category = "Collision - Body Parts - Hardware"  %>
+		<% when "3" then  @category = "Brakes"  %>
+		<% when "4" then  @category = "Heating & Cooling"  %>
+		<% when "5" then  @category = "Electrical - Lighting"  %>
+		<% when "6" then  @category = "Accessories"  %>
+	<% end %>
+<%= @category %>
 
-<h3> <%= @category %></h3>
+<!--End of Breadcrumbs -->
+<!--Category Heading -->
+<h1> <%= @category %></h1>
 
-<!-- this section contains product line results -->
-
-<!-- this section contains product line results -->
-
+<!-- Category Results -->
+<!-- Andrew added "continue reading" & some styling -->
+<!-- Kim added grid_12 to keep the products inside the container 3/2 -->
+<div style="height:100%">
 <% @products.each do |product| %>
-<% if product.productLine.include? (@category) %>
-<strong>Product Line:</strong> <%= product.productLine %><br>
-<strong>Item:</strong>        <%=link_to product.productName, :action => "show", :controller => 'products', :id => product.productCode  %><br />
-<strong>Description:</strong> <%= product.productDescription %><br>
-<strong>Price:</strong>       $<%= product.buyPrice %><br /><br>
-<% end %><% end %>   
+	<% if product.productLine.include? (@category) %>
+		<div class="grid_4" style="height:300px>
+			<%= link_to image_tag( product.productImage), :style => " align:center width:100px height:auto" , :action => "show", :controller => 'products', :id => product.productCode %><br />
+<!--			<strong>Product Line:</strong> <%= product.productLine %><br> -->
+			<p style="font-size:20px"><%= link_to product.productName, :action => "show", :controller => 'products', :id => product.productCode  %><br /></p>
+			$<%= product.buyPrice %><br>
+		<p style="padding-right:30px"><%= product.productDescription[0, 100] %>...<br>  <%=link_to " continue reading", :action => "show", :controller => 'products', :id => product.productCode  %></p>
+		</div>
+	<% end %>
+<% end %>  
+</div>
+</div>

@@ -1,49 +1,56 @@
-<!DOCTYPE html>
-<html>
+<html style="height:100%">
 <head>
-<!-- images - logo and headliner -->
-<div class="header">
-  <img src="/LugnutsInProgress.png" alt="Logo" style="width:280px; height:210px; padding-left:10%"">
-  <img src="/logo.png" style="padding-left:4%">
-</div>
-<!-- Title and CSS links -->
-  <title>Lugnuts Automotive</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "navbar" %>
+    <%= stylesheet_link_tag "reset" %>
+    <%= stylesheet_link_tag "960_12_col" %>
+    <%= stylesheet_link_tag "bootstrap.css" %>
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" %>
+    <%= javascript_include_tag "bootstrap.min.js" %>
+    <!-- stylesheet and title added by kim on 2/27/2016 -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    
+    
+    <!-- Added by Andrew 3/5/2016 for responsive layout -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+<!-- Kim: 3/1/2016 - changed logo to old logo - just to see what a bigger logo did for space. -->
+<!-- Kim: 3/1/2016 - Added login/cart icon - nonfunctional -->
+<title>Lugnuts Automotive</title>
 </head>
-<!-- Side Panels (Gray)  
-<div class="rightBar"></div>
-<div class="leftBar"></div>
--->
-<body>
-<!-- =============================== -->
-      <!-- Navigation Bar  -->
-<!-- =============================== -->
-<div class="navbar">
-<div id="cssmenu">
-        <ul>
-            <li><%= link_to 'Home', hello_Goodbye_path %></li>
-            <li><%= link_to 'Products', products_path %></li>
-            <li><%= link_to 'Blog', new_blog_path %></li>
-            <li><%= link_to 'About Us', about_Us_path %></li>
-            <li><%= link_to 'Contact Us', contact_Us_path %></li>
-        </ul>
+<!-- Kim: changed background color (background-color:#999) to background image -->
+<body background="../background-pattern.jpg" style="height:100%">
+    <div style="background-color:#bb0000; height:210px; width:100%">
+        <div style="width:960px; height:210; margin:0 auto">
+            <img src="../LugnutsInProgress.png" style="width:250px; height:187.5px; padding:10 0 0 15">
+            <img src="../logo.png" style="height:175px; width:auto; padding:30 0 0 5">
+<!--            <img src="/cart.png" style="float: right;width:50px; height:50px; padding-left: 5px; margin-top: 50px"> -->
+            <form style="float: right;; margin-top: 50px">
+                <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
+                <p><input type="password" name="password" value="" placeholder="Password">
+                <p  id="sameLine", class="submit"><input type="submit" name="commit" value="Login">
+                <p  id="sameLine"><%= link_to '<button type="button">Register</button>'.html_safe, new_user_path %>
+            </form>
+        </div>
     </div>
+<!-- Kim: changed link_to Home to root_url so that hello/Goodbye would not show up -->
+    <div id="cssmenu" style="width:100%">
+        <div style="width:960px; margin:0 auto">
+            <ul>
+                <li><%= link_to 'Home', root_url %></li>
+                <li><%= link_to 'Products', products_path %></li>
+                <li><%= link_to 'Blog', new_blog_path %></li>
+                <li><%= link_to 'About Us', about_Us_path %></li>
+                <li><%= link_to 'Contact Us', contact_Us_path %></li>
+            </ul>
+        </div>
     </div>
-<!-- Right side of header/login password/shopping cart icon -->
-<div style="margin-top:-250px; margin-left: 715px"  class="col-5">
-         <p><img src="/cart.png" style="float: right;width:50px; height:50px; padding-left: 5px; margin-top: 50px">
-  <form style="float: right; ">
-        <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-        <p><input type="password" name="password" value="" placeholder="Password">
-        <p  id="sameLine", class="submit"><input type="submit" name="commit" value="Login">
-        <p  id="sameLine"><%= link_to '<button type="button">Register</button>'.html_safe, new_user_path %>
-  </form>
-</div>
-<!-- Main Container  -->
-<div class="mainContainer">
-  <%= yield %>
-</div>
+    
+    <!-- Main Container  -->
+    <div class="container_12" style="background-color:white; min-height:100%">
+        <div id="grad" class="mainContainer">
+        <%= yield %>
+            
+        </div>
+    </div>
 </body>
 </html>

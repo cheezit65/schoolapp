@@ -24,10 +24,9 @@ a {
   &:visited {
     color: #666;
   }
-
+/*removed background-color: #000; so that nav bar would display properly */
   &:hover {
-    color: #fff;
-    background-color: #000;
+    color: #000;
   }
 }
 

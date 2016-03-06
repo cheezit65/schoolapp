@@ -1,5 +1,5 @@
 # MySQL.  Versions 5.0+ are recommended.
-#
+# Changed database from c9 to classicmodels on 2/26/2016.
 # Install the MYSQL driver
 #   gem install mysql2
 #

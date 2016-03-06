@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20160217025800) do
   create_table "blogs", force: :cascade do |t|
     t.string   "title",      limit: 255
     t.binary   "content",    limit: 4294967295
+    t.integer  "lugref",     limit: 4,          null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
   end
@@ -52,9 +53,11 @@ ActiveRecord::Schema.define(version: 20160217025800) do
 
   create_table "lugs", force: :cascade do |t|
     t.string   "title",      limit: 255
-    t.text     "post",       limit: 65535
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.text     "post1",      limit: 16777215
+    t.text     "post2",      limit: 65535
+    t.text     "post3",      limit: 65535
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   create_table "offices", primary_key: "officeCode", force: :cascade do |t|
@@ -111,6 +114,7 @@ ActiveRecord::Schema.define(version: 20160217025800) do
     t.integer "quantityInStock",    limit: 2,     null: false
     t.float   "buyPrice",           limit: 53,    null: false
     t.float   "MSRP",               limit: 53,    null: false
+    t.string  "productImage",       limit: 255,   null: false
   end
 
   add_index "products", ["productLine"], name: "productLine", using: :btree
