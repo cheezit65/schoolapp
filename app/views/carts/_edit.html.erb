@@ -1,0 +1,112 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    h1, h2{
+        font-family: 'Passion One';
+    }
+</style>
+
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<% @grandTotal = 0 %>
+
+<div class="grid_12">
+<h2 align="center">Review Your Order</h2><br>
+<h4 align="center">Order Details </h4>
+<div class="grid_9">
+<table style="width:580px" align="right">
+<td width="20%" style="padding:20px;text-align:right;"><span style="font-size:10pt"><strong>Quantity</span></strong></td>
+
+<td width="80%" style="padding:20px;text-align:left;"><span style="font-size:10pt"><strong>Item</span></strong></td>
+
+<td width=20%  style="padding:20px; text-align:right;"><span style="font-size:10pt"><strong>Price</span></strong></td>
+<% @line_items = LineItem.all %> 
+<% @line_items.each do |item| %>
+<% if (item.cart_id).to_i == (session[:cart_id]).to_i %>
+    <tr>
+<% @products.each do |product| %>
+    <% if product.productCode == item.product_id %>
+<div>
+<% if item.quantity.to_i < 1 %>
+<% item.quantity = 1 %>
+<% end %>
+
+<td width="20%" style="padding:20px;text-align:right;"><%= item.quantity %></td>
+
+<td width="80%" style="padding:20px;text-align:left;"><%= product.productName  %></td>
+
+<td width=20%  style="padding:20px; text-align:right;"> <%= product.buyPrice %></td>
+
+<% @grandTotal += product.buyPrice*item.quantity %>
+    </tr><% end %>
+    </div>
+    <% end %>
+    <% end %><% end %>
+    <tr><br>
+        <td  width="10%" style="padding-left:20px"></td>
+        <td   width="50%" style="float:left">Order Subtotal:</td>
+        <td  width="20%" style="float:right">$<%=  @grandTotal.round(2) %></td>
+    <tr><br>
+        <td  width="10%" style="padding-left:20px"></td>
+        <% if @grandTotal > 250 %>
+            <% @ShippingCharge = 0 %>
+            <td   width="50%" style="float:left;color:red"><strong>Free Shipping!<strong></td>
+            <td  width="20%" style="float:right">$0.00</td>
+        <% else  %>        
+            <% @ShippingCharge =  (@grandTotal * 0.10).round(2) %>
+            <td   width="50%" style="float:left">Shipping:</td>
+            <td  width="20%" style="float:right">$  <%=  '%.2f' % [@ShippingCharge]  %></td>
+        <% end %>
+        
+    <tr><br>
+        <td  width="10%" style="padding-left:20px"></td>
+        <td   width="50%" style="float:left">Order Total:</td>
+        
+        <% @grandTotal = @grandTotal + @ShippingCharge %>
+        <td  width="20%" style="float:right">$<%=  @grandTotal.round(2) %></td>
+</tr>
+</table>
+</div>
+<div class="grid_12">  
+<div class="grid_4" style="padding-left: 100px"><hr>  
+  <% if !user_signed_in? %>
+  <strong><h4>Log In to Check Out</h4></strong>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name, remote: true)) do |f| %>
+    <div class="field">
+        <%= f.label :email %>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color:black">
+        <%= f.email_field :email, autofocus: true,  :input_html => { :value => 'user@domain.com' } %>
+      <span class="actions" style="padding-left:44px; padding-top:30px">
+        <span style="color:black">
+        </span>
+      </span>    
+    </div>
+    <div class="field">
+      <%= f.label :password %>: 
+      <span style="color:black">
+      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.submit "Log in", :class => 'button'%>
+  </div>
+  <% end %>
+  <% end %>
+  </div>
+  <% if !user_signed_in? %> 
+<div class="grid_6" style="padding-left: 100px"><hr>  
+<h4>Or Check Out as Guest</h4>  
+  </div>
+  <% end %>
+<div class="grid_12">  
+<div style="float:left;padding-left:200px;padding-top:50px"><%= button_to 'Update Order', cart_path,:method => :get, :cartid => :cartid,:class => 'button' %></div>
+ <% if user_signed_in? %>
+<div style="float:left;padding-top:50px;padding-left:25px"><%= button_to 'Check Out ', new_web_customer_path, :method => :get, :cartid => :cartid,  :class => 'button', remote: true %></div>
+<% else %>
+<div style="float:left;padding-top:50px;padding-left:25px"><%= button_to 'Guest Check Out ', new_web_customer_path, :method => :get, :cartid => :cartid,  :class => 'button', remote: true %></div>
+<% end %>
+<div style="float:left; padding-left: 25px;padding-top:50px"><%= link_to 'Continue Shopping', products_path, :class => 'button' %></div>
+<!--<div style="float:left;padding-top:50px;padding-left:25px">
+<= button_to 'Log In to Check Out', edit_cart_path, :method => :get, :cartid => :cartid,  :class => 'button', remote: true %></div>
+-->
+<div style="float:left;padding-top:50px;padding-left:25px"><%= button_to "Empty Cart", cart_path(@cart), :method => :delete, :class => 'button', data: { confirm: 'Are you sure?' } %>&nbsp;</div>
+</div>

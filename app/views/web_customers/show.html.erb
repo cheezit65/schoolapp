@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<div class="grid_12">
+  <h4 style="text-align:center;color:black">Thank you for ordering with Lugnuts! <br>A copy of your invoice has been mailed to your email address. </h3>
+</div>
+<% session[:id] = nil %>
+<div class="clear"></div> 
+<div class="grid_6">
+  <h4   style="margin-left:50px"><strong>Order information </strong></h4><hr style="width:75%">
+  <% @grandTotal = 0 %>
+
+  <div  style="margin-left:50px">
+  <span>Order Number: <%= @web_orders.orderNumber %></span><br>
+  <span>Customer number <%= @web_customer.customerNumber %></span>
+    
+    <% @web_order_details = WebOrderDetail.where(:orderNumber => @web_orders.orderNumber).all %>
+    <% @web_order_details.each do |web_order_detail| %><br>
+    <% @products.each do |product| %>
+      <% if product.productCode == web_order_detail.productCode %>
+        <strong>ITEM</strong><br>
+        Quantity: <%= web_order_detail.quantityOrdered %><br>
+        Item:<%= product.productName %><br>
+        Price: <%= product.buyPrice %><br><br>
+        <% @grandTotal += product.buyPrice*web_order_detail.quantityOrdered %>
+      <% end %>
+    <% end %>
+  <% end %>
+        <strong>TOTAL</strong><br>
+        Subtotal: <%= @grandTotal.round(2) %><br>
+        <% if @grandTotal > 250 %>
+            <% @ShippingCharge = 0 %>
+            <span style="color:red"><strong>Free Shipping!</strong></span><br>
+        <% else  %>        
+            <% @ShippingCharge =  (@grandTotal * 0.10).round(2) %>
+            Shipping: $  <%=  '%.2f' % [@ShippingCharge]  %><br>
+        <% end %>
+        <% @grandTotal = @grandTotal + @ShippingCharge %>
+        Order Total: $<%=  @grandTotal.round(2) %>
+</div>
+</div>
+<div class="grid_6">
+<h4><strong>Shipping Information</strong></h4><hr style="width:75%">
+<p><strong>Ship To: </strong></p>
+<p>
+  <%= @web_customer.firstName.upcase   %> <%= @web_customer.lastName.upcase   %><br>
+  <%= @web_customer.addressLine1.upcase   %><br>
+  <% if !@web_customer.addressLine2.nil? %>
+  <%= @web_customer.addressLine2.upcase   %><br>
+  <% end %>
+  <%= @web_customer.city.upcase   %>, <%= @web_customer.state.upcase   %> <%= @web_customer.postalcode %>
+  
+</p>
+<p><strong>Customer Contact Information </strong></p>
+  <%= @web_customer.phone %><br>
+  <%= @web_customer.email %><br>
+
+</div>
+
+
+
+<div class="clear"></div> 
+
+
+<hr>
+
+<br>

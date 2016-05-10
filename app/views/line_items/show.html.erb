@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<% if @line_items.nil? %>
+no items
+<% else %>
+<%= @line_items %><br>
+<% @line_items.each do |item| %>
+    <br>ITEM<br><%= item.id %><br>
+    <%= item.product_id %><br>
+    <%= item.quantity %><br>
+<% end %>
+<% end %>

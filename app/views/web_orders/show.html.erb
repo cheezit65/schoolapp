@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+<h1> Please review your order</h1>
+<table style="margin-left: 30%">
+    TOTAL ITEMS IN CART: 
+<%= @line_items.count %><br /><br>
+<%= @lineCount %>
+
+<% @line_items.each do |item| %>
+    <tr>
+        <td><%= item.product_id %></td>
+<% @products.each do |product| %>
+    <% if product.productCode == item.product_id %>
+<td width="30%">    <%= item.quantity %></td>
+<td width="30%"> <%= product.productName  %></td>
+<td width="30%" align="right"> <%= product.buyPrice %></td>
+<% @grandTotal += product.buyPrice %>
+    <% end %>
+    <% end %>
+    <% end %>
+    </tr>
+    <tr>
+        <td width="30%"></td>
+        <td style="text-align:right" width="30%"> Order Total:</td>
+        <td style="text-align:right" width="30%"><%= @grandTotal %></td>
+        </tr>
+</table>
+<%= button_to 'Check Out as Guest', edit_web_order_path(@web_order) %> |
+<%= button_to 'Log In to Check Out', web_orders_path %>

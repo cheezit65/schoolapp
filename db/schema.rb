@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160217025800) do
+ActiveRecord::Schema.define(version: 20160324120959) do
 
   create_table "blogs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -19,6 +19,11 @@ ActiveRecord::Schema.define(version: 20160217025800) do
     t.integer  "lugref",     limit: 4,          null: false
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+  end
+
+  create_table "carts", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "customers", primary_key: "customerNumber", force: :cascade do |t|
@@ -50,6 +55,14 @@ ActiveRecord::Schema.define(version: 20160217025800) do
 
   add_index "employees", ["officeCode"], name: "officeCode", using: :btree
   add_index "employees", ["reportsTo"], name: "reportsTo", using: :btree
+
+  create_table "line_items", force: :cascade do |t|
+    t.string   "product_id", limit: 255,               null: false
+    t.text     "cart_id",    limit: 65535,             null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "quantity",   limit: 4,     default: 1
+  end
 
   create_table "lugs", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -120,14 +133,63 @@ ActiveRecord::Schema.define(version: 20160217025800) do
   add_index "products", ["productLine"], name: "productLine", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",            limit: 255, null: false
-    t.string   "crypted_password", limit: 255
-    t.string   "salt",             limit: 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip",     limit: 255
+    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "confirmation_token",     limit: 255
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "unconfirmed_email",      limit: 255
+    t.datetime "created_at",                                      null: false
+    t.datetime "updated_at",                                      null: false
+    t.string   "username",               limit: 255
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
+
+  create_table "web_customers", force: :cascade do |t|
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "firstName",    limit: 255
+    t.string   "lastName",     limit: 255
+    t.string   "phone",        limit: 255
+    t.string   "addressLine1", limit: 255
+    t.string   "addressLine2", limit: 255
+    t.string   "city",         limit: 255
+    t.string   "state",        limit: 255
+    t.string   "postalcode",   limit: 255
+    t.string   "country",      limit: 255
+    t.string   "email",        limit: 255
+  end
+
+  create_table "web_order_details", force: :cascade do |t|
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "orderNumber",     limit: 4
+    t.string   "productCode",     limit: 255
+    t.integer  "quantityOrdered", limit: 4
+    t.integer  "buyPrice",        limit: 4
+    t.integer  "orderLineNumber", limit: 4
+  end
+
+  create_table "web_orders", force: :cascade do |t|
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "orderNumber",    limit: 4
+    t.date     "orderDate"
+    t.date     "shippedDate"
+    t.string   "status",         limit: 255
+    t.integer  "customerNumber", limit: 4
+  end
 
   add_foreign_key "customers", "employees", column: "salesRepEmployeeNumber", primary_key: "employeeNumber", name: "customers_ibfk_1"
   add_foreign_key "employees", "employees", column: "reportsTo", primary_key: "employeeNumber", name: "employees_ibfk_1"

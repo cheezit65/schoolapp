@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :Name %><br>
-    <%= f.text_field :title %>
+<!-- this section modified by Kim on 3/15/2016 -->
+  <div class="field" style="display: none">
+    <%= f.label :Name  %><br>
+    <%= f.text_field :title, :value => current_user.username  %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>
@@ -24,6 +24,6 @@
     <%= f.text_area :lugref, :value => @lugid %>
   </div>
   <div class="actions">
-    <%= f.submit "Post Comment" %>
+    <%= f.submit "Save Comment" %>
   </div>
 <% end %>

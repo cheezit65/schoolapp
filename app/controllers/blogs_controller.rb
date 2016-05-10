@@ -6,6 +6,12 @@ class BlogsController < ApplicationController
   def index
     @blogs = Blog.order(created_at: :desc)
     @lugs = Lug.order(created_at: :desc)
+        @carts = Cart.all
+    @line_items = LineItem.all
+
+  end
+  def count
+     @line_items = LineItem.all.count
   end
 
   # GET /blogs/1
@@ -19,10 +25,15 @@ class BlogsController < ApplicationController
     @blog = Blog.new
     @blogs = Blog.order(created_at: :desc)
     @lugs = Lug.order(created_at: :desc)
+        @carts = Cart.all
+    @line_items = LineItem.all
   end
 
   # GET /blogs/1/edit
   def edit
+        @carts = Cart.all
+    @line_items = LineItem.all
+
   end
 
   # POST /blogs
@@ -35,7 +46,7 @@ class BlogsController < ApplicationController
         format.html { redirect_to :back}
         format.json { render :show, status: :created, location: @blog }
       else
-        format.html { render :new }
+        format.html { render :back }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
@@ -46,10 +57,10 @@ class BlogsController < ApplicationController
   def update
     respond_to do |format|
       if @blog.update(blog_params)
-        format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
-        format.json { render :show, status: :ok, location: @blog }
+        format.html { redirect_to :back, notice: 'Blog was successfully updated.' }
+        format.json { render :back, status: :ok, location: @blog }
       else
-        format.html { render :edit }
+        format.html { render :back }
         format.json { render json: @blog.errors, status: :unprocessable_entity }
       end
     end
@@ -60,7 +71,7 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     respond_to do |format|
-      format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Blog was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

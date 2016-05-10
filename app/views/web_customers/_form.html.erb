@@ -1,0 +1,101 @@
+<%= form_for(@web_customer) do |f| %>
+  <% if @web_customer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@web_customer.errors.count, "error") %> Please correct the errors below and resubmit order.</h2>
+
+      <ul>
+      <% @web_customer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<head>
+  	<link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+  	<link href='https://fonts.googleapis.com/css?family=Merriweather:700' rel='stylesheet' type='text/css'>
+</head>
+
+<style>
+  #customer_information{
+    background: #ccc;
+    display: block;
+    border-radius: 15px;
+    border-style: solid;
+    border-width: 1px;
+    padding: 25px 2px 2px 2px;
+    text-align: center;
+    font-family: 'Merriweather', serif;
+  }
+  
+  #field{
+    width: 70%;
+  }
+  
+  #signupfornews{
+    padding-top: 50px;
+    width: 400px;
+    height: auto;
+  }
+</style>
+
+<div class="grid_6">
+  <div id="customer_information">
+      <span id="label">First Name:</span> <br>
+  	    <%= f.label :firstName, class: "hidden" %>
+        <%= f.text_field :firstName, :id => "field", :placeholder => "First Name" %><br>
+  	  <span id="label">Last Name:</span> <br>
+        <%= f.label :lastName, class: "hidden"  %>
+        <%= f.text_field :lastName, :id => "field", :placeholder => "Last Name"  %><br>
+      <span id="label">Phone Number:</span><br>
+        <%= f.label :phone, class: "hidden"  %>
+        <%= f.text_field :phone, :id => "field",  :placeholder => "Phone Number"  %><br>
+      <span id="label">Address Line 1:</span><br>    
+        <%= f.label :addressLine1, class: "hidden"  %>
+        <%= f.text_field :addressLine1, :id => "field", :placeholder => "Address 1"  %><br>
+  	  <span id="label">Address Line 2:</span> <br>
+        <%= f.label :addressLine2, class: "hidden"  %>
+        <%= f.text_field :addressLine2, :id => "field", :placeholder => "Address 2"  %><br>
+      <span id="label">City:</span><br>
+        <%= f.label :city, class: "hidden"  %>
+        <%= f.text_field :city, :id => "field", :placeholder => "City"  %><br>
+      <span id="label">State</span><br>
+        <%= f.label :state, class: "hidden"  %>
+        <%= f.text_field :state, :id => "field", :placeholder => "State"  %><br>
+  	  <span id="label">Zip Code:</span><br>
+        <%= f.label :postalcode, class: "hidden"  %>
+        <%= f.text_field :postalcode, :id => "field", :placeholder => "Zip"  %><br>
+  	  <span id="label">E-mail Address:</span><br>
+        <%= f.label :email, class: "hidden"  %>
+        <%= f.text_field :email, :id => "field", :placeholder => "Email Address"  %><br>
+        
+<% if user_signed_in? %>
+      <span id="label">Save Customer Information to Your Account?</span></br>
+        <%= radio_button_tag(:user_ID, current_user.id) %>
+        <%= label_tag(:user_ID_yes, "Yes") %>
+        <%= radio_button_tag(:user_ID, "No", true) %>
+        <%= label_tag(:user_ID_no, "No") %>
+<% end %>
+<br><br>
+        
+      <span id="label">Would you like to receive our monthly newsletter?</span></br>
+        <%= radio_button_tag(:newsletter, "Yes", true) %>
+        <%= label_tag(:newsletter_yes, "Yes") %>
+        <%= radio_button_tag(:newsletter, "No") %>
+        <%= label_tag(:newsletter_no, "No") %>
+  	  <hr>
+  	  <span id="label">Pay with VISA or Mastercard</span><br>
+  	  <span id="label">VISA</span><br>
+        <%= text_field :number, :id => "VISAnumber", :placeholder => "VISA Number"  %><br><br>
+  	  <span id="label">MASTERCARD</span><br>
+        <%= text_field :number, :id => "MCnumber", :placeholder => "Mastercard Number"  %><br><br><br><br><br>
+      <div class="actions">
+        <%= f.submit "Submit Order"  %>
+        <% end %>
+      </div>
+  </div>
+</div>
+
+<div class="grid_6">
+  <img id="signupfornews" src="../signupforlgnews.png"><br><br>
+</div>

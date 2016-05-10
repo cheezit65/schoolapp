@@ -48,14 +48,19 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
         </div> <!-- Carousel -->
-      
+        
+        
+        <div id="phoneMain" style="display:none">
+          <img src="LugnutsBanner.jpg">
+        </div>
+        
     </div>
 
 <!-- Blog container on main page -->
 <!-- Kim: updated content on 3/1/2016 -->
 <!-- Kim: made container round on bottom on 3/2/2016 
 border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px-->
-
+<span class="mobileHide">
 <div class="grid_3" id="blog" style="background-color:#CCC; height:410px; margin-top:10px; float:right; position:relative; 
     border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px">
 <div align="center">
@@ -133,14 +138,14 @@ border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px-->
   
 <!-- Specials and Other Info -->
     <!-- Ad images added by Emily 2/28/16 -->
-  	<div class="grid_4" style="height:100px; margin-top:20px">
+  	<div class="grid_4" class="hide" style="height:100px; margin-top:20px">
   	  <img src="batteryAd.jpg" style="height:auto; max-width:100%">
   	</div>
   	
-    <div class="grid_4" style="height:100px; margin-top:20px">
+    <div class="grid_4" class="hide" style="height:100px; margin-top:20px">
       <img src="ReturnAd.jpg" style="height:auto; max-width:300px">
     </div>
-    <div class="grid_4" style="background-color:#CCC; height:100px; margin-top:20px">
+    <div class="grid_4" class="hide" style="background-color:#CCC; height:100px; margin-top:20px">
       <img src="PickUpAd.jpg" style="height:auto; max-width:300px">
     </div>
     <div class="clear"></div>
@@ -151,17 +156,18 @@ border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px-->
 <!-- Locaction and Direction, Updated by Kim on 3/1/2016 -->
 <!-- Will try to add sticky footer by end of week 3 -->
 
-  <div class="grid_9"  class="shadow" style=" float: center; padding-top: 10px;  background-color:#FDFDFD; height:auto">
+  <div class="grid_12"  class="shadow" class="hide" style="background-color:#CCC; height:50px; margin-top:10px; 
+    border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px">
     <table>
       <tr> 
-        <td style="text-align:left; font-size:8pt; ">Store Location:</td>
+        <td style="font-size:8pt; padding-left: 50px">Store Location:</td>
         <td></td>
-        <td style="text-align:left; font-size:8pt; padding-left: 10px"> 123 Buckeye Fan Ave., Columbus, Ohio 43210</td>
+        <td align="right" style="font-size:8pt; padding-left: 20px"> 123 Buckeye Fan Ave., Columbus, Ohio 43210</td>
       </tr>
       <tr> 
-        <td style="text-align:left; min-width:25%; font-size:8pt; ">Store Hours:</td>
+        <td style="min-width:25%; font-size:8pt; padding-left: 50px ">Store Hours:</td>
         <td></td>
-        <td style="text-align:left; font-size:8pt;  padding-left: 10px">Monday-Friday 7:00-9:00 &nbsp;&nbsp;&nbsp; Saturday 10:00-6:00 &nbsp;&nbsp;&nbsp; Sunday 12:00-5:00</td>
+        <td style="font-size:8pt;  padding-left: 20px">Monday-Friday 7:00-9:00 &nbsp;&nbsp;&nbsp; Saturday 10:00-6:00 &nbsp;&nbsp;&nbsp; Sunday 12:00-5:00</td>
       </tr>
     </table>
   </div>      
@@ -170,3 +176,4 @@ border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px-->
 <!-- End of 960 grid -->  
 </div>
 
+</span>

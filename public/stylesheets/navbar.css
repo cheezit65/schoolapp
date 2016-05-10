@@ -1,5 +1,6 @@
 
     @import url(http://fonts.googleapis.com/css?family=Open+Sans:700);
+    
 #cssmenu {
   background:gold;
 }
@@ -90,6 +91,8 @@
   display: none;
 }
 @media screen and (max-width: 768px) {
+  
+  
   #cssmenu ul li {
     float: none;
     display: block;
@@ -111,6 +114,66 @@
   #cssmenu ul li a:before {
     display: none;
   }
+  
+      
+body{
+  background-color: red;
+}
+
+#main {
+  display:none;
+}
+  
+	
+	/* Force table to not be like tables anymore */
+	table{
+		display: block; 
+	 margin-top:200px; 
+	}	  
+	thead, tbody, th, td, tr 
+	{ 
+		display: block; 
+		
+	}
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr 
+	{ 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td 
+	{ 
+		/* Behave  like a "row" */
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		text-align:left;
+	}
+	
+	td:before 
+	{ 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 100%; 
+		padding: 0 0 0 0;
+		white-space: nowrap;
+	}
+.container_12 .grid_12{
+ max-width:100%;
+ padding-bottom: 200px;
+}
+
+.img{
+  max-width:100%;
+  
+}
 }
 
 #socialmedia img {
@@ -120,6 +183,7 @@ border: 0;
 box-shadow: 0;
 display: inline;
 float:right;
+
 
 }
 

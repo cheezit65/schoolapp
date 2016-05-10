@@ -1,0 +1,1095 @@
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+#leftsidespace{
+ margin-left: 5%;
+ padding-left: 20px;
+}
+
+
+
+/*shadow CSS */
+.shadow {
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow:         3px 3px 5px 6px #ccc;
+}
+/*
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+
+/*
+  Forces backgrounds to span full width,
+  even if there is horizontal scrolling.
+  Increase this if your layout is wider.
+
+  Note: IE6 works fine without this fix.
+*/
+
+
+body {
+  min-width: 960px;
+}
+
+/* `Container
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+/* `Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+}
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11 {
+  position: relative;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+  margin-left: 0;
+}
+
+.omega {
+  margin-right: 0;
+}
+
+/* `Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .grid_1 {
+  width: 60px;
+}
+
+.container_12 .grid_2 {
+  width: 140px;
+}
+
+.container_12 .grid_3 {
+  width: 220px;
+}
+
+.container_12 .grid_4 {
+  width: 300px;
+}
+
+.container_12 .grid_5 {
+  width: 380px;
+}
+
+.container_12 .grid_6 {
+  width: 460px;
+}
+
+.container_12 .grid_7 {
+  width: 540px;
+}
+
+.container_12 .grid_8 {
+  width: 620px;
+}
+
+.container_12 .grid_9 {
+  width: 700px;
+}
+
+.container_12 .grid_10 {
+  width: 780px;
+}
+
+.container_12 .grid_11 {
+  width: 860px;
+}
+
+.container_12 .grid_12 {
+  width: 1500px;
+  margin-left:-250px;
+  text-align: left;
+  padding-left: 230px;
+}
+
+/* `Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .prefix_1 {
+  padding-left: 80px;
+}
+
+.container_12 .prefix_2 {
+  padding-left: 160px;
+}
+
+.container_12 .prefix_3 {
+  padding-left: 240px;
+}
+
+.container_12 .prefix_4 {
+  padding-left: 320px;
+}
+
+.container_12 .prefix_5 {
+  padding-left: 400px;
+}
+
+.container_12 .prefix_6 {
+  padding-left: 480px;
+}
+
+.container_12 .prefix_7 {
+  padding-left: 560px;
+}
+
+.container_12 .prefix_8 {
+  padding-left: 640px;
+}
+
+.container_12 .prefix_9 {
+  padding-left: 720px;
+}
+
+.container_12 .prefix_10 {
+  padding-left: 800px;
+}
+
+.container_12 .prefix_11 {
+  padding-left: 880px;
+}
+
+/* `Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .suffix_1 {
+  padding-right: 80px;
+}
+
+.container_12 .suffix_2 {
+  padding-right: 160px;
+}
+
+.container_12 .suffix_3 {
+  padding-right: 240px;
+}
+
+.container_12 .suffix_4 {
+  padding-right: 320px;
+}
+
+.container_12 .suffix_5 {
+  padding-right: 400px;
+}
+
+.container_12 .suffix_6 {
+  padding-right: 480px;
+}
+
+.container_12 .suffix_7 {
+  padding-right: 560px;
+}
+
+.container_12 .suffix_8 {
+  padding-right: 640px;
+}
+
+.container_12 .suffix_9 {
+  padding-right: 720px;
+}
+
+.container_12 .suffix_10 {
+  padding-right: 800px;
+}
+
+.container_12 .suffix_11 {
+  padding-right: 880px;
+}
+
+/* `Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .push_1 {
+  left: 80px;
+}
+
+.container_12 .push_2 {
+  left: 160px;
+}
+
+.container_12 .push_3 {
+  left: 240px;
+}
+
+.container_12 .push_4 {
+  left: 320px;
+}
+
+.container_12 .push_5 {
+  left: 400px;
+}
+
+.container_12 .push_6 {
+  left: 480px;
+}
+
+.container_12 .push_7 {
+  left: 560px;
+}
+
+.container_12 .push_8 {
+  left: 640px;
+}
+
+.container_12 .push_9 {
+  left: 720px;
+}
+
+.container_12 .push_10 {
+  left: 800px;
+}
+
+.container_12 .push_11 {
+  left: 880px;
+}
+
+/* `Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .pull_1 {
+  left: -80px;
+}
+
+.container_12 .pull_2 {
+  left: -160px;
+}
+
+.container_12 .pull_3 {
+  left: -240px;
+}
+
+.container_12 .pull_4 {
+  left: -320px;
+}
+
+.container_12 .pull_5 {
+  left: -400px;
+}
+
+.container_12 .pull_6 {
+  left: -480px;
+}
+
+.container_12 .pull_7 {
+  left: -560px;
+}
+
+.container_12 .pull_8 {
+  left: -640px;
+}
+
+.container_12 .pull_9 {
+  left: -720px;
+}
+
+.container_12 .pull_10 {
+  left: -800px;
+}
+
+.container_12 .pull_11 {
+  left: -880px;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after,
+.container_12:before,
+.container_12:after {
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.container_12:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix,
+.container_12 {
+  zoom: 1;
+}
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/productlines.scss */
+#vehCont {
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+/* line 1, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 9, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+/* line 15, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+/* line 21, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+a {
+  color: #000;
+}
+/* line 24, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+a:visited {
+  color: #666;
+}
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+a:hover {
+  color: #fff;
+  background-color: #000;
+}
+
+/* line 35, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+/* line 40, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#notice {
+  color: green;
+}
+
+/* line 44, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+/* line 50, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+/* line 58, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/scaffolds.scss */
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+/* CSS Document */
+
+
+
+/* 960 grid CSS */
+
+/*
+  960 Grid System ~ Core CSS.
+  Learn more ~ http://960.gs/
+
+  Licensed under GPL and MIT.
+*/
+
+/*
+  Forces backgrounds to span full width,
+  even if there is horizontal scrolling.
+  Increase this if your layout is wider.
+
+  Note: IE6 works fine without this fix.
+*/
+
+
+body {
+  min-width: 960px;
+}
+
+/* `Container
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 960px;
+}
+
+/* `Grid >> Global
+----------------------------------------------------------------------------------------------------*/
+
+.grid_1,
+.grid_2,
+.grid_3,
+.grid_4,
+.grid_5,
+.grid_6,
+.grid_7,
+.grid_8,
+.grid_9,
+.grid_10,
+.grid_11,
+.grid_12 {
+  display: inline;
+  float: left;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.push_1, .pull_1,
+.push_2, .pull_2,
+.push_3, .pull_3,
+.push_4, .pull_4,
+.push_5, .pull_5,
+.push_6, .pull_6,
+.push_7, .pull_7,
+.push_8, .pull_8,
+.push_9, .pull_9,
+.push_10, .pull_10,
+.push_11, .pull_11 {
+  position: relative;
+}
+
+/* `Grid >> Children (Alpha ~ First, Omega ~ Last)
+----------------------------------------------------------------------------------------------------*/
+
+.alpha {
+  margin-left: 0;
+}
+
+.omega {
+  margin-right: 0;
+}
+
+/* `Grid >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .grid_1 {
+  width: 60px;
+}
+
+.container_12 .grid_2 {
+  width: 140px;
+}
+
+.container_12 .grid_3 {
+  width: 220px;
+}
+
+.container_12 .grid_4 {
+  width: 300px;
+}
+
+.container_12 .grid_5 {
+  width: 380px;
+}
+
+.container_12 .grid_6 {
+  width: 460px;
+}
+
+.container_12 .grid_7 {
+  width: 540px;
+}
+
+.container_12 .grid_8 {
+  width: 620px;
+}
+
+.container_12 .grid_9 {
+  width: 700px;
+}
+
+.container_12 .grid_10 {
+  width: 780px;
+}
+
+.container_12 .grid_11 {
+  width: 860px;
+}
+
+.container_12 .grid_12 {
+  width: 940px;
+}
+
+/* `Prefix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .prefix_1 {
+  padding-left: 80px;
+}
+
+.container_12 .prefix_2 {
+  padding-left: 160px;
+}
+
+.container_12 .prefix_3 {
+  padding-left: 240px;
+}
+
+.container_12 .prefix_4 {
+  padding-left: 320px;
+}
+
+.container_12 .prefix_5 {
+  padding-left: 400px;
+}
+
+.container_12 .prefix_6 {
+  padding-left: 480px;
+}
+
+.container_12 .prefix_7 {
+  padding-left: 560px;
+}
+
+.container_12 .prefix_8 {
+  padding-left: 640px;
+}
+
+.container_12 .prefix_9 {
+  padding-left: 720px;
+}
+
+.container_12 .prefix_10 {
+  padding-left: 800px;
+}
+
+.container_12 .prefix_11 {
+  padding-left: 880px;
+}
+
+/* `Suffix Extra Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .suffix_1 {
+  padding-right: 80px;
+}
+
+.container_12 .suffix_2 {
+  padding-right: 160px;
+}
+
+.container_12 .suffix_3 {
+  padding-right: 240px;
+}
+
+.container_12 .suffix_4 {
+  padding-right: 320px;
+}
+
+.container_12 .suffix_5 {
+  padding-right: 400px;
+}
+
+.container_12 .suffix_6 {
+  padding-right: 480px;
+}
+
+.container_12 .suffix_7 {
+  padding-right: 560px;
+}
+
+.container_12 .suffix_8 {
+  padding-right: 640px;
+}
+
+.container_12 .suffix_9 {
+  padding-right: 720px;
+}
+
+.container_12 .suffix_10 {
+  padding-right: 800px;
+}
+
+.container_12 .suffix_11 {
+  padding-right: 880px;
+}
+
+/* `Push Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .push_1 {
+  left: 80px;
+}
+
+.container_12 .push_2 {
+  left: 160px;
+}
+
+.container_12 .push_3 {
+  left: 240px;
+}
+
+.container_12 .push_4 {
+  left: 320px;
+}
+
+.container_12 .push_5 {
+  left: 400px;
+}
+
+.container_12 .push_6 {
+  left: 480px;
+}
+
+.container_12 .push_7 {
+  left: 560px;
+}
+
+.container_12 .push_8 {
+  left: 640px;
+}
+
+.container_12 .push_9 {
+  left: 720px;
+}
+
+.container_12 .push_10 {
+  left: 800px;
+}
+
+.container_12 .push_11 {
+  left: 880px;
+}
+
+/* `Pull Space >> 12 Columns
+----------------------------------------------------------------------------------------------------*/
+
+.container_12 .pull_1 {
+  left: -80px;
+}
+
+.container_12 .pull_2 {
+  left: -160px;
+}
+
+.container_12 .pull_3 {
+  left: -240px;
+}
+
+.container_12 .pull_4 {
+  left: -320px;
+}
+
+.container_12 .pull_5 {
+  left: -400px;
+}
+
+.container_12 .pull_6 {
+  left: -480px;
+}
+
+.container_12 .pull_7 {
+  left: -560px;
+}
+
+.container_12 .pull_8 {
+  left: -640px;
+}
+
+.container_12 .pull_9 {
+  left: -720px;
+}
+
+.container_12 .pull_10 {
+  left: -800px;
+}
+
+.container_12 .pull_11 {
+  left: -880px;
+}
+
+/* `Clear Floated Elements
+----------------------------------------------------------------------------------------------------*/
+
+/* http://sonspring.com/journal/clearing-floats */
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0;
+}
+
+/* http://www.yuiblog.com/blog/2010/09/27/clearfix-reloaded-overflowhidden-demystified */
+
+.clearfix:before,
+.clearfix:after,
+.container_12:before,
+.container_12:after {
+  content: '.';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  font-size: 0;
+  line-height: 0;
+  width: 0;
+  height: 0;
+}
+
+.clearfix:after,
+.container_12:after {
+  clear: both;
+}
+
+/*
+  The following zoom:1 rule is specifically for IE6 + IE7.
+  Move to separate stylesheet if invalid CSS is a problem.
+*/
+
+.clearfix,
+.container_12 {
+  zoom: 1;
+}
+
+/* 960 Rest CSS */
+
+/* `XHTML, HTML4, HTML5 Reset
+----------------------------------------------------------------------------------------------------*/
+
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+dialog,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+font,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+hr,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+menu,
+meter,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+progress,
+q,
+rp,
+rt,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video,
+xmp {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+/*
+  Override the default (display: inline) for
+  browsers that do not recognize HTML5 tags.
+
+  IE8 (and lower) requires a shiv:
+  http://ejohn.org/blog/html5-shiv
+*/
+  display: block;
+}
+
+b,
+strong {
+/*
+  Makes browsers agree.
+  IE + Opera = font-weight: bold.
+  Gecko + WebKit = font-weight: bolder.
+*/
+  font-weight: bold;
+}
+
+img {
+  color: transparent;
+  font-size: 0;
+  vertical-align: middle;
+/*
+  For IE.
+  http://css-tricks.com/ie-fix-bicubic-scaling-for-images
+*/
+  -ms-interpolation-mode: bicubic;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+li {
+/*
+  For IE6 + IE7:
+
+  "display: list-item" keeps bullets from
+  disappearing if hasLayout is triggered.
+*/
+  display: list-item;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th,
+td,
+caption {
+  font-weight: normal;
+  vertical-align: top;
+  text-align: left;
+}
+
+q {
+  quotes: none;
+}
+
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+sub,
+sup,
+small {
+  font-size: 75%;
+}
+
+sub,
+sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+svg {
+/*
+  For IE9. Without, occasionally draws shapes
+  outside the boundaries of <svg> rectangle.
+*/
+  overflow: hidden;
+}
+.navLinks {
+	font-size:20px;
+	color:#FFFFFF !important;
+	font-family:Arial, Helvetica, sans-serif;
+	padding-left:45px;
+	padding-right:45px;
+	text-decoration:none;	
+	list-style-type: none;
+	display:inline-block;
+}
+.navbar {
+	position:relative;
+	margin-left: -10px;
+	margin-right: -10px;
+	background-color:#17130F;
+	text-align:center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	white-space:nowrap;
+	margin-bottom: 25px;
+
+}
+.mainContainer{
+	width:80%;
+	margin-left: 15%;
+}

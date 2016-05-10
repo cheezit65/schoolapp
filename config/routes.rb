@@ -1,45 +1,31 @@
 Rails.application.routes.draw do
-  resources :lugs
-  resources :blogs
-  get 'user_sessions/new'
-
-  get 'user_sessions/create'
-
-  get 'user_sessions/destroy'
-
-  resources :users
-  resources :lugs
-  resources :blogs
+  resources :teams
+  resources :web_customers
+  resources :web_order_details
+  resources :web_orders
+  resources :orders
+  resources :line_items
+  resources :carts
+  resource :carts, :only => :show 
+  devise_for :users
+ resources :lugs
   resources :blogs
   resources :productlines
   get 'productlines/desc'
-
-  get 'productlines/desc'
-
   resources :searches
   get 'contact/Us'
   get 'about/Us'
   get 'blog/index'
   get 'products/show'
-  get 'productlines/desc'
-  
-  resources :controllers
   resources :products
   resources :productlines
-  get 'hello/Goodbye'
   get 'blog', to: 'blog#new'
-  get 'users/show'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  get 'users', to: 'users#index'
   root 'hello#Goodbye'
-resources :user_sessions
-resources :users
-get 'login' => 'user_sessions#new', :as => :login
-post 'logout' => 'user_sessions#destroy', :as => :logout
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

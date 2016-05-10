@@ -1,37 +1,88 @@
 <html style="height:100%">
 <head>
     <%= stylesheet_link_tag "navbar" %>
+    <%= stylesheet_link_tag "formalize" %>
     <%= stylesheet_link_tag "reset" %>
     <%= stylesheet_link_tag "960_12_col" %>
     <%= stylesheet_link_tag "bootstrap.css" %>
+    <%= stylesheet_link_tag "buttons.css" %>
     <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" %>
+    <%= javascript_include_tag "jquery.formalize" %>
     <%= javascript_include_tag "bootstrap.min.js" %>
     <!-- stylesheet and title added by kim on 2/27/2016 -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
     
     
     <!-- Added by Andrew 3/5/2016 for responsive layout -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-<!-- Kim: 3/1/2016 - changed logo to old logo - just to see what a bigger logo did for space. -->
-<!-- Kim: 3/1/2016 - Added login/cart icon - nonfunctional -->
-<title>Lugnuts Automotive</title>
+    <!-- Kim: 3/1/2016 - changed logo to old logo - just to see what a bigger logo did for space. -->
+    <!-- Kim: 3/1/2016 - Added login/cart icon - nonfunctional -->
+    <!-- Kim: changed background color (background-color:#999) to background image -->
+    <title>Lugnuts Automotive</title>
 </head>
-<!-- Kim: changed background color (background-color:#999) to background image -->
-<body background="../background-pattern.jpg" style="height:100%">
+
+<body id="showBackground" style="height:100%">
     <div style="background-color:#bb0000; height:210px; width:100%">
         <div style="width:960px; height:210; margin:0 auto">
+
+<!-- Kim set images to Ruby tags so that they would display on all pages. Original code is below:
             <img src="../LugnutsInProgress.png" style="width:250px; height:187.5px; padding:10 0 0 15">
-            <img src="../logo.png" style="height:175px; width:auto; padding:30 0 0 5">
-<!--            <img src="/cart.png" style="float: right;width:50px; height:50px; padding-left: 5px; margin-top: 50px"> -->
-            <form style="float: right;; margin-top: 50px">
-                <p><input type="text" name="login" value="" placeholder="Username or Email"></p>
-                <p><input type="password" name="password" value="" placeholder="Password">
-                <p  id="sameLine", class="submit"><input type="submit" name="commit" value="Login">
-                <p  id="sameLine"><%= link_to '<button type="button">Register</button>'.html_safe, new_user_path %>
-            </form>
-        </div>
+        <img src="../logo.png" style="height:175px; width:auto; padding:30 0 0 5">
+-->
+       <%= image_tag("LugnutsInProgress.png", size: "250x187", alt: "Lugnuts Image") %>
+       <%= image_tag("logo.png", size: "400x150", alt: "Lugnuts Logo") %>
+            
+<% #FIXME Here is the code for the buttons to login/logout/register. Please style the pages and buttons %>
+<!-- This section added by Kim on 3/14/2016 -->
+<div style="float: right; margin:40 10 0 0">
+    <div style="min-height:125px">
+    <% if user_signed_in? %>
+        <br>
+            <span style="color:white; font-size:19px">Hello, <%= current_user.username %><br></span><br>
+            <span style="position: relative; display:inline; margin-bottom:80pt !important">
+            <%= link_to 'Log Out', destroy_user_session_path, :method => :get, :class => 'button'  %>
+            <%= link_to 'Your Account', edit_user_registration_path, :method => :get, :class => 'button' %>
+            <div style="margin-bottom:20px;"></div>
+</span>
+    <% else %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field" style="float:left;color:white">
+        <%= f.label :email %>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color:black">
+        <%= f.email_field :email, autofocus: true %>
+    
+      </div>
+  <div class="field" style="color:white">
+        <%= f.label :password %>: 
+        <span style="color:black">
+        <%= f.password_field :password, autocomplete: "off" %><br>
+      <div class="actions" style="float:right; margin-top:10px; margin-left: 10px">
+        <%= f.submit "Log in", :class => 'button' %>
+      </span></div>
+  </div>
+<% end %>
+
+    <span style="float:right"><%= button_to 'Register', new_user_registration_path, :method => :get, :class => 'button' %></span><br><br>
+<% end %>
+</div>
+<!-- shopping cart icon -->
+
+<div>
+    <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'  && controller_name != 'confirmations' %>
+        
+<!-- 3/24/2016 -- watch this code, could cause trouble -->
+    <% end %>
+            </div>
+</div>
+<!-- end Shopping cart icon <span style="color:white; float:left; margin=top:0px"><%= notice %><%= alert %> <%= devise_error_messages! %> -->
+<!-- end Kim's section added on 3/14/2016 -->
+</div>
+
     </div>
+</div>
+    
 <!-- Kim: changed link_to Home to root_url so that hello/Goodbye would not show up -->
     <div id="cssmenu" style="width:100%">
         <div style="width:960px; margin:0 auto">
@@ -41,16 +92,28 @@
                 <li><%= link_to 'Blog', new_blog_path %></li>
                 <li><%= link_to 'About Us', about_Us_path %></li>
                 <li><%= link_to 'Contact Us', contact_Us_path %></li>
+                <% @lineCount = 0 %>
+                <% if controller_name != 'sessions' && controller_name != 'registrations' && controller_name != 'passwords'  && controller_name != 'confirmations' %>
+                    <% @line_items.each do |item| %>
+                        <% if (item.cart_id).to_i == (session[:cart_id]).to_i %>
+                            <% @lineCount = @lineCount + 1 %>
+                        <% end %>
+                            <% end %>
+                        <% if @lineCount > 0 %>                            
+                            <li><%= link_to "Cart (#{@lineCount})", cart_path(session[:cart_id]) %></li>
+                            <% else %>
+                            <li><%= link_to "Cart (0)" %></li>
+                    <% end %>
+                <% end %>
             </ul>
         </div>
     </div>
     
     <!-- Main Container  -->
-    <div class="container_12" style="background-color:white; min-height:100%">
-        <div id="grad" class="mainContainer">
+    <span class="mobileHide">
+    <div class="container_12" style="background-color:white; padding-bottom:100px">
         <%= yield %>
-            
-        </div>
     </div>
+    </span>
 </body>
 </html>

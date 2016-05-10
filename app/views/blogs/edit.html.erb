@@ -1,6 +1,14 @@
-<h1>Editing Blog</h1>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    h1, h2{
+        font-family: 'Passion One';
+    }
+</style>
 
-<%= render 'form' %>
+<h2>Edit Your Post, <%= current_user.username %></h2>
 
-<%= link_to 'Show', @blog %> |
-<%= link_to 'Back', blogs_path %>
+<%= render 'form2' %>
+
+<%= link_to 'Back to Comments', new_blog_path %>

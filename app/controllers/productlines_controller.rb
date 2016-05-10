@@ -6,8 +6,12 @@ class ProductlinesController < ApplicationController
   def index
     @productlines = Productline.all
       @products = Product.all
+          @carts = Cart.all
+    @line_items = LineItem.all
   end
-
+ def count
+     @line_items = LineItem.all.count
+  end
   # GET /productlines/1
   # GET /productlines/1.json
   def show

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+	<link href='https://fonts.googleapis.com/css?family=Mrs+Sheppards' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+  </head>
+  
+<style>
+  body{
+  background-image: url("../LugnutsWatermark.png");
+	border-radius: 15px;
+	border-style: solid 1px;
+	width: 80%;
+  }
+  
+  h3{
+	font-family: 'Passion One', cursive;
+	font-size: 1.5em;
+  }
+  
+  h4{
+	font-family: 'Passion One', cursive;
+  }
+  
+  #sig{
+	font-family: 'Mrs Sheppards', cursive;
+	font-size: 2em
+  }
+  
+  #logo{
+	width: 550px;
+	height: auto
+  }
+  
+</style>
+  <body>
+<h3>Thank you for ordering with Lugnuts Automotive!</h3>
+    <p>Your order details are below.<p>
+<h4>Order information </h4>
+Customer number <%= @web_customer.customerNumber %><br>
+Order Number: <%=   @orderNum %><br>
+  <% @grandTotal = 0 %>
+<% @web_order_details = WebOrderDetail.where(:orderNumber => @orderNum).all %>
+<% @web_order_details.each do |web_order_detail| %>
+    <%= web_order_detail.productCode %>
+    <%= web_order_detail.quantityOrdered %>
+<% @products.each do |product| %>
+    <% if product.productCode == web_order_detail.productCode %>
+    <strong>ITEM</strong><br>
+        Item:<%= product.productName %><br>
+        Quantity: <%= web_order_detail.quantityOrdered %><br>
+        Price: <%= product.buyPrice %><br><br>
+        <% @grandTotal += product.buyPrice*web_order_detail.quantityOrdered %>
+<% end %>
+<% end %>
+<% end %>
+        <strong>TOTAL</strong><br>
+        Subtotal: <%= @grandTotal %><br>
+        <% if @grandTotal > 250 %>
+            <% @ShippingCharge = 0 %>
+            <span style="color:red"><strong>Free Shipping!<strong></span><br>
+        <% else  %>        
+            <% @ShippingCharge =  (@grandTotal * 0.10).round(2) %>
+            Shipping: $  <%=  '%.2f' % [@ShippingCharge]  %><br>
+        <% end %>
+        <% @grandTotal = @grandTotal + @ShippingCharge %>
+        Order Total: $<%=  @grandTotal.round(2) %>
+</div>
+<h4><strong>Shipping Information</strong></h4>
+<p><strong>Ship To: </strong></p>
+<p>
+  <%= @web_customer.firstName.upcase   %> <%= @web_customer.lastName.upcase   %><br>
+  <%= @web_customer.addressLine1.upcase   %><br>
+  <% if !@web_customer.addressLine2.nil? %>
+  <%= @web_customer.addressLine2.upcase   %><br>
+  <% end %>
+  <%= @web_customer.city.upcase   %>, <%= @web_customer.state.upcase   %> <%= @web_customer.postalcode %>
+  
+</p>
+<p><strong>Customer Contact Information </strong></p>
+  <%= @web_customer.phone %><br>
+  <%= @web_customer.email %><br>
+
+</div>
+
+<p>    If you need assistance with your order, please call us during business hours:
+<br>1-800-lugnuts (1-800-584-6887)<br>
+and we will help you! We value your business.
+    </p>
+    <p>Sincerely,</p>
+    <p id="sig">Patty Lugnuts</p>
+  </body>
+</html>

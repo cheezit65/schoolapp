@@ -1,3 +1,12 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    h1, h2{
+        font-family: 'Passion One';
+    }
+</style>
+
 <!-- Kim: section added 2/26/2016) -->
 <!--Breadcrumbs -->
 <% @products.each do |product| %>
@@ -31,27 +40,21 @@
 <div class="grid_12">
     <% @products.each do |product| %>
     <% if product.productCode == params[:id] %>
+    </div>
 <div class="grid_5">
     <img src="<%= product.productImage %>" style="max-width:100%" align="left">
 </div>
+
 <div class="grid_5" style=" padding-top:25px; float:right;margin-right:10%">
     <h1><strong><%= product.productName  %></strong></h1><br />
+        <%= button_to 'Add to Cart', line_items_path(product_id: product) %><br>
+        <p>Price: $ <%= product.buyPrice %></p>
+        <p>Item Code:        <%= product.productCode  %></p>
         <%= product.productDescription %><br /><br />
-         <table style="height: 300px; width: 500px">
-            <tr>
-                <td>
-                    Price:     $      <%= product.buyPrice %><br>
-                    Item Code:        <%= product.productCode  %>
-                </td>
-                <td>
-                    <button  type="submit" style="border: 0; background: transparent; float:left" disabled>
-                        <img src="../cart_button.png" alt="submit" >
-                    </button>
-                            </td>
-            </tr>    
-        </table>
-</div>
-</div>
 <% end %>
 <% end %>
+         
+</div>
+<div class="clear"></div>
+    
 </div>

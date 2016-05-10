@@ -38,4 +38,17 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  config.action_mailer.default_url_options = { :host => 'lugnuts-release-cheezit.c9users.io' }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.perform_deliveries = true
+config.action_mailer.smtp_settings = {
+    :address              => 'smtp.mailgun.org',
+    :port                 => 2525,
+    :domain               => 'sandboxdcc8defec8b64f699ab850fffc19cf97.mailgun.org',
+    :user_name            => 'postmaster@sandboxdcc8defec8b64f699ab850fffc19cf97.mailgun.org',
+    :password             => 'e2b0c81d0ded364066eeb84ba2e03369',
+    :authentication => :plain,
+    :enable_starttls_auto => true,
+    :ssl =>false
+}
 end

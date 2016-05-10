@@ -15,6 +15,67 @@
  */
 /* CSS Document */
 
+.buttonW{
+width: 187px;	
+}
+.lineFormat{
+	float:left;
+ font-size:14pt;
+ height: 30px;
+  padding-bottom: 1em;
+	
+}
+.hidden{
+display:none;	
+}
+
+#rightContent {
+    border-left: thick double #EEEEEE;
+    padding-left:10px;
+    height:auto;
+    }
+
+
+	#showBackground{
+	background-image: url("background-pattern.jpg");
+	}
+	#cartIcon {
+	background-image: url("../cart.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 60px;
+	width: 60px;
+	/*margin-left:100px !important;*/
+	position: static;
+}
+	#cartIcon2 {
+	background-image: url("../cart.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 65px;
+	width: 65px;
+	margin-left:32px;
+}
+	.buttonImage {
+	background-image: image-url('cart_button.png');
+	background-repeat: no-repeat;
+	height: 100px;
+}
+
+.itemBackground {
+	font-size:15pt;
+	color:black;
+	width: 30px;
+	height:30px;
+	margin-top:-5px !important;
+	margin-left: 15px !important;
+	border-radius: 20px;
+}
+
+.link-to {
+	text-decoration:none !important;
+	}
+
 
 .navLinks {
 	font-size:20px;
@@ -39,70 +100,77 @@
 
 }
 
-
+/*
 img {
 	max-width: 50%;
 	height: auto;
 }
-/*section added to make product table responsive */
+*/
+/*section added to make product table responsive 
+
 
 @media 
 only screen and (max-width: 760px),
 (min-device-width: 768px) and (max-device-width: 1024px)  {
-	
-	/* Force table to not be like tables anymore */
-	table, thead, tbody, th, td, tr 
-	{ 
-		display: block; 
-	}
-	
-	/* Hide table headers (but not display: none;, for accessibility) */
-	thead tr { 
-		position: absolute;
-		top: -9999px;
-		left: -9999px;
-	}
-	
-	tr { border: 1px solid #ccc; }
-	
-	td { 
-		/* Behave  like a "row" */
-		border: none;
-		border-bottom: 1px solid #eee; 
-		position: relative;
-	}
-	
-	td:before { 
-		/* Now like a table header */
-		position: absolute;
-		/* Top/left values mimic padding */
-		top: 6px;
-		left: 6px;
-		width: 100%; 
-		padding-right: 10px; 
-		white-space: nowrap;
-	}
-	
-	.header {
+
+/* add this with the .mobile-only NOT SURE IF IT IS DIONG ANYTHING */	
+/*img, embed, object, video, iframe {
+    max-width: 100%;
+    float:left;
+    display:block;
+    }
+    	
+	.header 
+	{
 		max-width:auto;
 		height:auto;
 		text-align:center;
 	}
 	
-	#blog{
+}
+*/
+
+
+
+/*
+/* trying something new - Kim	
+{
+	#banner {
+		display:none;
+	}
+
+	#logo {
+		margin-left:50%;
+		margin-right:auto;
+	}
+	
+}
+
+*/
+/* Tag anything you want to disappear at 760 as class .mobile-only */
+
+
+
+
+/*@media (max-width: 760px)*/
+/*{*/
+
+/*	#blog, #news, #carousel-example-generic, #login, #hide {*/
+/*        display:none !important;*/
+/*	}*/
+/*}*/
+/*
+@media (max-width: 520px)
+{
+	#banner {
 		display:none;
 	}
 	
-	#news{
-		position: absolute;
-		margin-top: 305px;
+	#logo {
+		margin-left:50%;
+		margin-right:auto;
 	}
 	
-	#carousel-example-generic{
-		width: auto !important;
-	}
-
-
 }
 
 
@@ -113,3 +181,5 @@ only screen and (max-width: 760px),
    margin: 0px;
    padding-right: 20px;
 	}
+
+

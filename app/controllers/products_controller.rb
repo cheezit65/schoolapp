@@ -5,13 +5,22 @@ class ProductsController < ApplicationController
   # GET /products.json
   def index
     @products = Product.all
+    @carts = Cart.all
+    @line_items = LineItem.all
+    @results = Product.search(params[:search])
+end
+
+  def count
+     @line_items = LineItem.all.count
   end
 
   # GET /products/1
   # GET /products/1.json
   def show
     @products = Product.all
-      @product = Product.new
+    @product = Product.new
+    @carts = Cart.all
+    @line_items = LineItem.all
   end
 
   # GET /products/new
@@ -21,6 +30,10 @@ class ProductsController < ApplicationController
 
   # GET /products/1/edit
   def edit
+        @products = Product.all
+      @product = Product.new
+         @carts = Cart.all
+    @line_items = LineItem.all
   end
 
   # POST /products

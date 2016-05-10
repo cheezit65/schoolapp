@@ -1,0 +1,36 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    h1, h2{
+        font-family: 'Passion One';
+    }
+</style>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Line Items</h1>
+<% if @line_items.nil? %>
+no items
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @line_items.each do |line_item| %>
+      <tr>
+        <td><%= link_to 'Show', line_item %></td>
+        <td><%= link_to 'Edit', edit_line_item_path(line_item) %></td>
+        <td><%= link_to 'Destroy', line_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Line item', new_line_item_path %>

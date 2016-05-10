@@ -1,0 +1,65 @@
+<h2 align="center"><%= current_user.username %>'s Account</h2>
+
+<div class="grid_5" style="margin-left:45px">
+<h4 style="color:black" align="center">Change your User Info</h4>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+    <%= f.password_field :current_password, autocomplete: "off" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+</div>
+
+<div class="grid_5" style="margin-left:45px">
+<h4 style="color:black" align="center">Order History</h4>
+<% @web_orders = WebOrder.all %>
+<% @web_customers = WebCustomer.all %>
+<% @web_order_details = WebOrderDetail.all %>
+<% @web_customers.each do |customer| %>
+  <% if customer.user_id == current_user.id %>
+    <% @cusNumber = customer.customerNumber %>
+      <% @web_orders.each do |order| %>
+        <% if order.customerNumber == @cusNumber %>
+            <% @web_order_details.each do |detail| %>
+                <% if detail.orderNumber == order.orderNumber %>
+                  Order Number: <%= detail.orderNumber %><br>
+                  Order Date: <%= order.created_at.strftime("%b %d,  %Y")  %><br>
+                  Order Status: <%= order.status %><br><br><hr>
+               <% end %>
+            <% end %>        
+        <% end %>
+      <% end %>
+<% end %>
+<% end %>
+
+</div>

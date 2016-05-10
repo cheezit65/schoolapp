@@ -1,3 +1,12 @@
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+</head>
+<style>
+    h1, h2{
+        font-family: 'Passion One';
+    }
+</style>
+
 <!-- Kim: section added 2/26/2016) -->
 <!--Breadcrumbs by Kim -->
 <%= link_to 'Products', products_path %>  / 
@@ -19,11 +28,12 @@
 <!-- Category Results -->
 <!-- Andrew added "continue reading" & some styling -->
 <!-- Kim added grid_12 to keep the products inside the container 3/2 -->
-<div style="height:100%">
+<div style="">
 <% @products.each do |product| %>
 	<% if product.productLine.include? (@category) %>
-		<div class="grid_4" style="height:300px>
-			<%= link_to image_tag( product.productImage), :style => " align:center width:100px height:auto" , :action => "show", :controller => 'products', :id => product.productCode %><br />
+		<div class="grid_4" style="height:300px">
+			
+			<%= link_to image_tag(product.productImage, size:"150x150"), {:action => "show", :controller => 'products', :id => product.productCode} %>
 <!--			<strong>Product Line:</strong> <%= product.productLine %><br> -->
 			<p style="font-size:20px"><%= link_to product.productName, :action => "show", :controller => 'products', :id => product.productCode  %><br /></p>
 			$<%= product.buyPrice %><br>

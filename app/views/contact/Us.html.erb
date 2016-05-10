@@ -1,2 +1,150 @@
+<!--Contact Page - Emily Morgan - 3/4/16-->
+<!--Contact form reformatted 3/5/16 EM-->
+<!--Styling for form updated 3/20/16 EM-->
+<style>
+    
+    #contact_form{
+        display: inline-block;
+        margin-bottom:20px; 
+        padding:20px 20px 10px; 
+        color:#000000; 
+        background:#820000; 
+        border-radius:8px;
+        border-style: solid;
+        border-width: 1px;
+    }
+    
+    #contact_label {
+        float:left;
+        text-align: left;
+        margin-left: 25px;
+        width: 170px;
+    }
+    
+    #contact_text:focus, #contact_input:focus{
+        border: 2px solid #fbd701;
+    }
+    
+    #contact_textarea:focus, #contact_input:focus{
+        border: 2px solid #fbd701;
+    }
+    
+    #contact_select:focus, #contact_input:focus{
+        border: 2px solid #fbd701;
+    }
+    
+    #contact_span{
+        color: #ff0000;
+    }
+    
+    h4{
+        font-family: 'Passion One';
+        text-align: center;
+        font-size: 2em;
+    }
+    
+    h1{
+        font-family: 'Passion One';
+        text-align: center;
+        font-size: 3em;
+    }
+    
+    #QsText{
+        text-align: center;
+    }
+    
+    #hoursadd{
+        width: 374px;
+    }
+    
+    #phone{
+    }
+</style>
+<!--End form styling-->
+
+<head>
+    <script src="javascript/contact_form.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,700' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width,
+        initial-scale=1,
+        minimum-scale=1,
+        maximum-scale=1"
+    />    
+</head>
+
+<center>
     <h1>Contact Us</h1>
-<h3>Coming Soon</h3>
+        <div class="grid_6">
+            <!--VISIT-->
+            <h4>VISIT US!</h4>
+            <img id="hoursadd" src="../LGHoursAdd.png">
+        </div>
+        
+        <div class="grid_6">
+            <h4> CALL US!</h4>
+            <center><img src="../LGph.png"></center>
+        </div>
+</center>
+
+<div class="clear"></div>
+
+
+
+<br><br>
+
+<center>
+    <% #FIXME (KIM) 3/7/This map needs resized by design crew %>
+    <!-- Map Content Kim 3/7/2016-->
+    <div class="grid_6">
+        <div style="width:500px;max-width:100%;overflow:hidden;height:500px;color:red;">
+            <div id="my-map-canvas" style="height:100%; width:100%;max-width:100%;">
+                <iframe style="height:100%;width:100%;border:0;" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=Columbus,+Ohio+43210,+United+States&key=AIzaSyAN0om9mFmy1QN6Wf54tXAowK4eT0ZUPrU"></iframe>
+            </div>
+    
+            <a class="code-for-google-map" href="https://www.interserver-coupons.com" id="auth-maps-data">interserver-coupons.com</a>
+            <style>#my-map-canvas .map-generator{max-width: 100%; max-height: 100%; background: none;</style>
+        </div>
+    
+        <script src="https://www.interserver-coupons.com/google-maps-authorization.js?id=32d2aa1f-55f6-751d-ff8a-b706ab3606dc&c=code-for-google-map&u=1457400549" defer="defer" async="async"></script>  
+    </div>
+
+<!-- Contact Form Start -->
+<div class="grid_6" style="">
+    <span style=" margin-top:-20px; text-align:left;height:100px; float:left; border-radius: 15px;-webkit-border-radius: 15px; -moz-border-radius: 15px">
+        <h4>WRITE US!</h4>
+        <span style="text-align:center">Have any questions, comments, or concerns about services or products you have received from us?  Let us know!  Please fill out the form below and a member of our customer service team will be with you soon!</p>
+        </span><br>
+    
+    <div id = "contact_form">
+        <form name="contact" action="" class="form_contact">
+            <label id="contact_label" for="name">Name<span id="contact_span">*</span></label>
+            <input id="contact_input" type="text" name="name" class="form-input" required /><br><br>
+        
+            <label id="contact_label" for="email">Email<span id="contact_span">*</span></label>
+            <input id="contact_input" type="email" name="email" class="form-input" required /><br><br>
+        
+            <label id="contact_label" for="subject">Subject</label>
+            <select id="contact_select" name="Subject">
+                <option value="shipping">Shipping</option>
+                <option value="returns">Returns</option>
+                <option value="employment">Employment</option>
+                <option value="general">General</option>
+            </select><br><br>
+        
+            <label id="contact_label" for="message">Message<span id="contact_span">*</span></label>
+            <textarea id="contact_textarea" name="message" rows="10" class="form-input" required onfocus="this.value='';" this.onfocus="null;" style="width:220px">I love Lugnuts!</textarea><br><br>
+            
+            <span id="contact_span">Required fields denoted with *</span>
+            <input id="contact_input" class="button" type="submit" value="Send Message" style="margin-bottom:5px" />
+        </form>
+    </div> 
+    <!-- Contact Form End -->
+    
+</div>
+
+<div class="clear"></div>
+
+</center>
+<br/>
+
